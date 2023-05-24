@@ -1,0 +1,122 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
+  body{background: url();}
+   
+
+header {
+  width: 100%;
+  height: 50%;
+  background-color: #007bff ;
+ }
+img {
+  width: 70%;
+  height: 0%;
+}
+  header h3{
+   
+    text-decoration: none;
+    color: black; }
+    h4 {
+color: black;
+    }
+  header .navHeaderItems {
+    width: 70%;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important; }
+
+
+
+.grid-container {
+  text-align: center; }
+
+.nav-link {
+  text-align: center; }
+
+.grid-container1 {
+  display: grid;
+  grid-template-areas: "imagen-uno imagen-tres"
+ "imagen-dos imagen-tres";
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto; }
+
+.redimension1 {
+  height: 75%;
+  width: 85%; }
+
+.redimension2 {
+  height: 70%;
+  width: 50%; }
+
+body {
+  height: 100%; }
+
+.grid-container2 {
+  display: grid;
+  grid-template-areas: "texto-uno texto-uno"
+ "texto-dos"  
+ "texto-tres";
+  
+  grid-template-columns: 800px ;
+  grid-template-rows: 200px   ;
+  grid-row-gap: 70px;
+  grid-row-gap: 70px; }
+
+.imagen-uno {
+  position: relative;
+  display: inline-block;
+  text-align: center; }
+
+.imagen-dos {
+  position: relative;
+  display: inline-block;
+  text-align: center; }
+
+.imagen-tres {
+  position: relative;
+  display: inline-block;
+  text-align: center; }
+
+.imagen-cuatro {
+  position: relative;
+  display: inline-block;
+  text-align: center; }
+
+img.redimension {
+  height: 60%;
+  width: 50%; }
+
+.texto {
+  position: inherit;
+  top: 5px;
+  left: 10px;
+  color:wheat; }
+
+@media (max-width: 600px) {
+  .grid-container1, .grid-container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 90vw; } }
+h2{
+  text-align: center;
+  .grid-container3 {
+    display: grid;
+    grid-template-areas: "text1 text1"
+   "text2"  
+   "text3";
+    
+    grid-template-columns: 800px ;
+    grid-template-rows: 200px   ;
+    grid-row-gap: 70px;
+    grid-row-gap: 70px; }
+  
+}
+    footer{
+      background-color: #007bff;
+      
+    }
