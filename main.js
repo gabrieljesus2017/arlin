@@ -1,4 +1,5 @@
 
+/* */
 var contador;
 function calificar(item) {
     contador = item.id[0];
