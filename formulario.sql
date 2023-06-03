@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `formulario`
 --
-CREATE DATABASE IF NOT EXISTS `clientes ` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `clientes `;
+CREATE DATABASE IF NOT EXISTS `clientes_potenciales` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `clientes_potenciales`;
 
 -- --------------------------------------------------------
 
@@ -28,16 +28,21 @@ USE `clientes `;
 -- Estructura de tabla para la tabla `datos`
 --
 
-CREATE TABLE IF NOT EXISTS `clientes ` (
-  `nombres` varchar(70) NOT NULL ,
-  `email` varchar(50) NOT NULL,
-  `servicio` text(50) NOT NULL,
-  `direccion` varchar(120) NOT NULL,
-  `departamento` varchar(50) NOT NULL,
-  `cuidad` varchar(50) NOT NULL,
-  `telefono` int(20) NOT NULL,
-  
-) 
+use clientes_potenciales;
+CREATE TABLE clientes (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombres VARCHAR(255),
+email VARCHAR(255),
+servicio VARCHAR(255),
+direccion VARCHAR(255),
+departamento VARCHAR(255),
+ciudad VARCHAR(255),
+telefono VARCHAR(255)
+);
+
+select * from clientes;
+
+desc clientes;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

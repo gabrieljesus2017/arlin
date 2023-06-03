@@ -1,38 +1,40 @@
 <?php
-	//conexion con la base de datos y el servidor
+    // conexión con la base de datos y el servidor
     $server = "localhost";
     $user = "root";
     $pass = "";
-    $db = "clientes potenciales";
-    $conexion = new mysqli($server,$user,$pass,$db);
-    if($conexion->connect_errno) {
-         die("la conexion ha fallado" . $conexion->connect_errno
-
-    );
+    $db = "clientes_potenciales";
+    $conexion = new mysqli($server, $user, $pass, $db);
+    if ($conexion->connect_errno) {
+        die("La conexión ha fallado: " . $conexion->connect_error);
     }
- 	//$link = mysql_connect("localhost","root","","clientes") or die("<h2>No se encuentra el servidor</h2>");
-	//$db = mysql_select_db("clientes",$link) or die("<h2>Error de Conexion</h2>");
 
-	//obtenemos los valores del formulario
-	$nombres = $_POST['inputEmail4'];
-	$email = $_POST['inputPassword4'];
-	$servicio = $_POST['inputServicios'];
-	$direccion = $_POST['inputAddress2'];
-	$departamento = $_POST['inputZip1'];
-    $cuidad = $_POST['inputCity'];
+    // obtenemos los valores del formulario
+    $nombres = $_POST['inputEmail4'];
+    $email = $_POST['inputPassword4'];
+    $servicio = $_POST['inputServicios'];
+    $direccion = $_POST['inputAddress2'];
+    $departamento = $_POST['inputZip1'];
+    $ciudad = $_POST['inputCity'];
     $telefono = $_POST['inputPhone'];
 
-	//Obtiene la longitus de un string
-	$req = (strlen($nombres)*strlen($email)*strlen($servicio)*strlen($direccion)*strlen($departamento)*strlen($cuidad)*strlen($telefono)) or die("No se han llenado todos los campos");
+    // verifica que se hayan llenado todos los campos
+    $req = (strlen($nombres)*strlen($email)*strlen($servicio)*strlen($direccion)*strlen($departamento)*strlen($ciudad)*strlen($telefono)) or die("No se han llenado todos los campos");
 
-	
+    // ingresamos la información a la base de datos
+    $query =   "INSERT INTO clientes(nombres,email,servicio,direccion,departamento,ciudad,telefono)
+                VALUES('$nombres', '$email', '$servicio', '$direccion', '$departamento', '$ciudad', '$telefono')";
+    if ($conexion->query($query) === true) {
+        echo '
+        <script>
+            alert("Registro Exitoso");
+            location.href="contacto.html";
+        </script>
+        ';
+    } else {
+        echo "Error guardando los datos: " . $conexion->error;
+    }
 
-	//ingresamos la informacion a la base de datos
-	mysql_query("INSERT INTO clientes  VALUES('','$nombres','$email','$servicio','$direccion','$departamento','$cuidad','$telefono')",$link) or die("<h2>Error Guardando los datos</h2>");
-	echo'
-		<script>
-			alert("Registro Exitoso");
-			location.href="contacto.html";
-		</script>
-        '
-        ?>
+    // cerrar la conexión
+    $conexion->close();
+?>
